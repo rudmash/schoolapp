@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="content-head">
+        <div class="head-content admin">
+            <h2>Learners</h2>
+            <a class="a" href="{% url 'create-learner' %}">Add a learner</a>
+        </div>
+        <hr>
+        <div class="subject-box">
+            {% for learner in learners_list  %}
+                <a class="subject btn" href="#"> {{ learner.user.first_name }} {{ learner.user.last_name }} {{ learner.grade}}</a>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock content %}

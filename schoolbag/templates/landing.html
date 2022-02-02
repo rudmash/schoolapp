@@ -1,0 +1,55 @@
+{% extends "base_index.html" %}
+
+{% block text %}
+    <li><a href="{% url 'logout'%}">LogOut: {{ request.user.first_name }}</a></li>
+{% endblock text %}
+
+{% block content %}
+
+{% if request.user.is_learner %}
+    <div class="main-container-text">
+        <h2>Welcome {{ request.user.first_name }} {{ request.user.last_name }}</h2>
+        <p>We hope you will have fun learning today!!</p>
+    </div>
+    <div class="login-form card">
+        <h1>Your SchoolBag</h1>
+        <div class="box">
+            <div class="buttons-box">
+                <a class="btn btn-primary ad" href="{% url 'learner-subjects' %}">Subjects</a>
+                <a class="btn btn-primary ad" href="#">ExtraSchool</a>
+            </div>
+        </div>
+    </div>
+{% elif request.user.is_teacher%}
+    <div class="main-container-text">
+        <h2>Welcome Mr {{ request.user.first_name }}</h2>
+        <p>We hope you enjoy teaching today!!</p>
+    </div>
+    <div class="login-form card">
+        <h1>Your SchoolBag</h1>
+        <div class="box">
+            <div class="buttons-box">
+                <a class="btn btn-primary ad" href="#">Subjects</a>
+            </div>
+        </div>
+    </div>
+{% elif request.user.is_admin%}
+    <div class="main-container-text">
+        <h2>Welcome {{ request.user.first_name }}</h2>
+        <p>We hope you we have made your job as an administrator fun</p>
+    </div>
+    <div class="login-form card admin">
+        <h1>Your SchoolBag</h1>
+        <div class="box">
+            <div class="buttons-box">
+                <a class="btn btn-primary ad" href="{% url 'admin-teachers-list' %}">Teachers</a>
+                <a class="btn btn-primary ad" href="{% url 'admin-learners-list' %}">Learners</a>
+                <a class="btn btn-primary ad" href="#">Grades</a>
+                <a class="btn btn-primary ad" href="#">Subjects</a>
+                <a class="btn btn-primary ad" href="#">Classes</a>
+            </div>
+        </div>
+    </div>
+{% endif %}
+
+{% endblock content %}

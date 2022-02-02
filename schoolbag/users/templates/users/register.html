@@ -1,0 +1,16 @@
+{% extends "base_index.html" %}
+
+{% block text %}
+    <li><a href="{% url 'login'%}">Login</a></li>
+{% endblock text %}
+
+{% block content %}
+    <div class="login-form card">
+        <h1>Open your SchoolBag</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Register" class="btn btn-primary">
+        </form>
+    </div>
+{% endblock content %}

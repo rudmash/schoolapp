@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Teachers</h2>
+    <hr>
+    {% for teacher in teachers_list  %}
+        <div class="list-box">
+            <h2>Username: {{ teacher.user.username }}</h2>
+        </div>
+    {% endfor %}
+{% endblock content %}

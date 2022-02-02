@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="content-head">
+        <h2 class="head-content">Your Subjects</h2>
+        <hr>
+        <div class="subject-box">
+            {% for class  in class_list  %}
+                <a class="subject btn" href="{% url 'learner-detail-subject' class.subject.pk %}">{{ class.subject.name }}</a>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock content %}

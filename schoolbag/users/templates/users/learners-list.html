@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Learners</h2>
+    <hr>
+    {% for learner in learners_list  %}
+        <div class="list-box">
+            <h2>Username: {{ learner.user.username }}</h2>
+            <h2>Grade: {{ learner.grade.grade}}</h2>
+        </div>
+    {% endfor %}
+{% endblock content %}

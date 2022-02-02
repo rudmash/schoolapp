@@ -1,0 +1,59 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'css/styles_base.css' %}" rel="stylesheet">
+    <title>SchoolBag.com</title>
+</head>
+<body>
+    <!-- navbar -->
+    <nav class="navbar">
+        <div class="container flex">
+            <div class="logo">
+                <h1 class="left-half">School</h1>
+                <h1 class="right-half">Bag</h1>
+            </div>
+            <nav>
+                <ul>{% if request.user.is_authenticated %}
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    {% endif %}
+                    <li><a href="{% url 'logout' %}">logOut: {{ request.user.first_name }}</a></li>
+                </ul>
+            </nav>
+        </div>
+    </nav>
+    {% comment %} {% if request.user.is_authenticated %}
+        <div class=" head">
+            <div class="head-box">
+                <div>
+                    <p>{{ request.user.first_name }} {{ request.user.last_name }}</p>
+                </div>
+                {% if request.user.is_learner %}
+                    <div>
+                        <p>Learner </p>
+                    </div>
+                {% elif request.user.is_teacher%}
+                    <div>
+                        <p>Teacher</p>
+                    </div>
+                {% elif request.user.is_admin%}
+                    <div>
+                        <p>Admin</p>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    {% endif %} {% endcomment %}
+    <!-- main-container -->
+    <section class="main-section">
+        <div class="main-container">
+            {% block content %}
+              
+            {% endblock content %}
+        </div>
+    </section>
+</body>
+</html>

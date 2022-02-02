@@ -1,0 +1,21 @@
+{% extends "base_index.html" %}
+{% block text %}
+    <li><a href="{% url 'login'%}">Login</a></li>
+{% endblock text %}
+
+{% block content %}
+    <div class="main-container-text">
+        <h2>The Future is Now</h2>
+        <p>Teaching and Learning made easy and fun,
+            Equality in Education is your Goal
+        </p>
+    </div>
+    <div class="login-form card">
+    <div>
+        <h1>Welcome to your SchoolBag</h1>
+    </div>
+    <div class="login-link">
+        <a class="btn btn-primary" href="register">Register</a>
+    </div>
+    </div>
+{% endblock content %}

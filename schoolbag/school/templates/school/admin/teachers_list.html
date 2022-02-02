@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="content-head">
+        <div class="head-content admin">
+            <h2>Teachers</h2>
+            <a class="a" href="{% url 'create-teacher' %}">Add a teacher</a>
+        </div>
+        <hr>
+        <div class="subject-box">
+            {% for teacher  in teachers_list  %}
+                <a class="subject btn" href="#">Mr {{ teacher.user.first_name }} {{ teacher.user.last_name }}</a>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock content %}
